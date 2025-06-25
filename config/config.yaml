@@ -1,0 +1,140 @@
+# ==============================================================================
+# Date : 20-06-2025
+# File: config/config.yaml
+# Description: Configuration for the pipeline.
+# ==============================================================================
+s3_buckets:
+  raw_data: "s3://airline-ds-raw-data"
+  staging_area: "s3://airline-ds-staging-area"
+  processed_data: "s3://airline-ds-processed-data"
+
+data_sources:
+  # rcis:
+  #   path: "rcis/all_multi_intent.csv"
+  twcs:
+    path: "twcs/twcs.csv"
+  convo3k:
+    path: "conversation-3k/Conversation.csv"
+  
+dask_npartitions: 4
+
+# For PII detection (using simple regex as a placeholder)
+
+pii_patterns:
+  EMAIL: '\S*@\S*\s?'
+  PNR: '[A-Z0-9]{6}' 
+  PHONE: '\b(?:\d{3}[-.\s]?\d{3}[-.\s]?\d{4}|\(\d{3}\)\s*\d{3}[-.\s]?\d{4}|\d{10})\b'
+  USER_ID_MENTION: '@\d+'
+  CC_NUMBER: '\b(?:\d{4}[-.\s]?){3}\d{4}\b'
+
+
+llm_topic_categories:
+  - "Flight Booking"
+  - "Flight Cancellation"
+  - "Flight Delay"
+  - "Baggage Issues"
+  - "Customer Service"
+  - "General Inquiry"
+  - "complaints"
+  - "Feedback"
+  - "Suggestions"
+  - "billing inquiry"
+  - "technical support"
+  - "refund request"
+  - "lost and found"
+  - "flight status"
+  - "flight change"
+  - "flight upgrade"
+  - "flight reschedule"
+  - "flight check-in"
+  - "flight boarding"
+  - "flight seating"
+  - "flight amenities"
+  - "flight meals"
+  - "flight entertainment"
+  - "flight loyalty programs"
+  - "flight rewards"
+  - "flight promotions"
+  - "flight offers"
+  - "flight discounts"
+  - "flight policies"
+  - "flight procedures"
+  - "flight regulations"
+  - "flight security"
+  - "flight safety"
+
+llm_sentiment_categories:
+  - "Positive"
+  - "Negative"
+  - "Neutral"
+
+llm_intent_categories:
+  - "Booking"
+  - "Cancellation"
+  - "Inquiry"
+  - "Complaint"
+  - "Feedback"
+  - "Support" 
+  - "Refund"
+  - "Change"
+  - "Upgrade"
+  - "Reschedule"
+  - "Check-in"
+  - "Boarding"
+  - "Seating"
+  - "Amenities"
+  - "Meals"  
+  - "information"
+  - "Loyalty Programs"
+  - "Rewards"
+  - "Promotions"
+  - "Offers"
+  - "Discounts"
+  - "Policies"
+  - "Procedures"
+  - "Regulations"
+  - "Security"
+  - "Safety"
+
+llm_entity_labels:
+  - "Flight Number"
+  - "Date"
+  - "Time"
+  - "Location"
+  - "Airline"
+  - "Passenger Name"
+  - "Booking Reference"
+  - "PNR"
+  - "Email Address"
+  - "Phone Number"
+  - "Credit Card Number"
+  - "Loyalty Program Number"
+  - "Seat Number"
+  - "Baggage Claim Number"
+  - "Flight Status"
+
+AIR_TRAVEL_BRANDS:
+  - "AmericanAir"
+  - "AirAsiaSupport"
+  - "British_Airways"
+  - "AirbnbHelp"
+  - "nationalrailenq"
+  - "Delta"
+  - "VirginTrains"
+  - "SouthwestAir"
+  - "VirginAtlantic"
+  - "AlaskaAir"
+  - "VirginAmerica"
+  - "JetBlue"
+  - "askvisa"
+  - "HotelTonightCX"
+  - "Expedia"
+  - "Bookingcom"
+  - "flySFO"
+  - "KLM"
+  - "Lufthansa"
+  - "SingaporeAir"
+  - "Qantas"
+  - "Emirates"
+  - "Qatar Airways"
+  - "HiltonSuggests"

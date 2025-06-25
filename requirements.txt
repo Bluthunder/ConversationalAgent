@@ -1,0 +1,12 @@
+dask
+pandas
+pyyaml
+spacy
+transformers
+scikit-learn
+python-dotenv
+dvc[s3]
+s3fs
+boto3
+apache-airflow==2.9.0
+apache-airflow-providers-docker==3.11.0
