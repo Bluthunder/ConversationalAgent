@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  airline-pipeline:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: airline-pipeline:latest
+    container_name: airline_pipeline_runner
+
+    environment:
+      # Choose which script to run (preprocessing or labeling)
+      PIPELINE_STAGE: "labeling"  # or "preprocessing"
+
+      # Hugging Face offline cache
+      TRANSFORMERS_CACHE: "/app/hf_models"
+      HF_HOME: "/app/hf_models"
+
+      # AWS credentials (pass from host env or .env file)
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_DEFAULT_REGION: "us-east-1"
+
+    volumes:
+      # Mount Hugging Face cache if you want to persist between builds
+      - ./hf_models:/app/hf_models
+
+      # Optionally mount config files separately
+      - ./config:/app/config
+
+    command: >
+      sh -c "
+      if [ \"$PIPELINE_STAGE\" = \"preprocessing\" ]; then
+          python scripts/run_data_pipeline.py;
+      elif [ \"$PIPELINE_STAGE\" = \"labeling\" ]; then
+          python scripts/run_labeling_pipeline.py;
+      else
+          echo '❌ Unknown pipeline stage.';
+      fi
+      "

@@ -24,94 +24,17 @@ pii_patterns:
   EMAIL: '\S*@\S*\s?'
   PNR: '[A-Z0-9]{6}' 
   PHONE: '\b(?:\d{3}[-.\s]?\d{3}[-.\s]?\d{4}|\(\d{3}\)\s*\d{3}[-.\s]?\d{4}|\d{10})\b'
-  USER_ID_MENTION: '@\d+'
   CC_NUMBER: '\b(?:\d{4}[-.\s]?){3}\d{4}\b'
 
 
-llm_topic_categories:
-  - "Flight Booking"
-  - "Flight Cancellation"
-  - "Flight Delay"
-  - "Baggage Issues"
-  - "Customer Service"
-  - "General Inquiry"
-  - "complaints"
-  - "Feedback"
-  - "Suggestions"
-  - "billing inquiry"
-  - "technical support"
-  - "refund request"
-  - "lost and found"
-  - "flight status"
-  - "flight change"
-  - "flight upgrade"
-  - "flight reschedule"
-  - "flight check-in"
-  - "flight boarding"
-  - "flight seating"
-  - "flight amenities"
-  - "flight meals"
-  - "flight entertainment"
-  - "flight loyalty programs"
-  - "flight rewards"
-  - "flight promotions"
-  - "flight offers"
-  - "flight discounts"
-  - "flight policies"
-  - "flight procedures"
-  - "flight regulations"
-  - "flight security"
-  - "flight safety"
-
-llm_sentiment_categories:
-  - "Positive"
-  - "Negative"
-  - "Neutral"
-
-llm_intent_categories:
-  - "Booking"
-  - "Cancellation"
-  - "Inquiry"
-  - "Complaint"
-  - "Feedback"
-  - "Support" 
-  - "Refund"
-  - "Change"
-  - "Upgrade"
-  - "Reschedule"
-  - "Check-in"
-  - "Boarding"
-  - "Seating"
-  - "Amenities"
-  - "Meals"  
-  - "information"
-  - "Loyalty Programs"
-  - "Rewards"
-  - "Promotions"
-  - "Offers"
-  - "Discounts"
-  - "Policies"
-  - "Procedures"
-  - "Regulations"
-  - "Security"
-  - "Safety"
-
-llm_entity_labels:
-  - "Flight Number"
-  - "Date"
-  - "Time"
-  - "Location"
-  - "Airline"
-  - "Passenger Name"
-  - "Booking Reference"
-  - "PNR"
-  - "Email Address"
-  - "Phone Number"
-  - "Credit Card Number"
-  - "Loyalty Program Number"
-  - "Seat Number"
-  - "Baggage Claim Number"
-  - "Flight Status"
+preprocessing:
+  remove_mentions: true
+  mention_patterns: '@\w+'
+  remove_urls: true
+  url_patterns: 'http\S+|www\S+'
+  remove_emojis: false
+  lowercase: true
+  min_words: 3
 
 AIR_TRAVEL_BRANDS:
   - "AmericanAir"

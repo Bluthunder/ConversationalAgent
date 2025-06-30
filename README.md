@@ -52,3 +52,9 @@ scripts/: Useful for development. This allows you to run the entire pipeline or 
 requirements.txt: Lists all Python dependencies, ensuring a consistent environment.
 
 This structure provides a clean separation of concerns, making the project easy to understand, test, and scale.
+
+
+## 
+unset AWS_ACCESS_KEY_ID
+unset AWS_SECRET_ACCESS_KEY
+unset AWS_SESSION_TOKEN

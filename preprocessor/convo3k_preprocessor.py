@@ -27,4 +27,4 @@ class Convo3KPreprocessor(BasePreprocessor):
     def save(self, processed_data: list, output_path: str):
         with open(output_path, 'w', encoding='utf-8') as f:
             for convo in processed_data:
-                f.write(json.dumps(convo) + '\n')
+                f.write(json.dumps(convo, ensure_ascii=False) + '\n')

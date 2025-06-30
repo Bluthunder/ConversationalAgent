@@ -7,8 +7,7 @@ from airflow.operators.python import PythonOperator
 from airflow.providers.docker.operators.docker import DockerOperator
 from datetime import datetime
 
-# You would import your pipeline functions here if running with PythonOperator
-# from pipeline.acquisition import ...
+## Need to update this 
 
 with DAG(
     dag_id='airline_data_preprocessing',

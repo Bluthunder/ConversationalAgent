@@ -1,0 +1,101 @@
+s3:
+  preprocessed_data: "s3://airline-ds-staging-area/for-annotation/2025-06-26/twcs.jsonl"
+  labeled_output: "s3://airlines-ds-processed-data"
+
+labeling:
+  sentiment:
+    enabled: true
+    source: user
+    categories:
+      - "Positive"
+      - "Negative"
+      - "Neutral"
+
+  intent:
+    enabled: true
+    source: user
+    categories:
+      - "Booking"
+      - "Cancellation"
+      - "Inquiry"
+      - "Complaint"
+      - "Feedback"
+      - "Support"
+      - "Refund"
+      - "Change"
+      - "Upgrade"
+      - "Reschedule"
+      - "Check-in"
+      - "Boarding"
+      - "Seating"
+      - "Amenities"
+      - "Meals"
+      - "Information"
+      - "Loyalty Programs"
+      - "Rewards"
+      - "Promotions"
+      - "Offers"
+      - "Discounts"
+      - "Policies"
+      - "Procedures"
+      - "Regulations"
+      - "Security"
+      - "Safety"
+
+  topic:
+    enabled: true
+    source: user
+    categories:
+      - "Flight Booking"
+      - "Flight Cancellation"
+      - "Flight Delay"
+      - "Baggage Issues"
+      - "Customer Service"
+      - "General Inquiry"
+      - "Complaints"
+      - "Feedback"
+      - "Suggestions"
+      - "Billing Inquiry"
+      - "Technical Support"
+      - "Refund Request"
+      - "Lost and Found"
+      - "Flight Status"
+      - "Flight Change"
+      - "Flight Upgrade"
+      - "Flight Reschedule"
+      - "Flight Check-in"
+      - "Flight Boarding"
+      - "Flight Seating"
+      - "Flight Amenities"
+      - "Flight Meals"
+      - "Flight Entertainment"
+      - "Flight Loyalty Programs"
+      - "Flight Rewards"
+      - "Flight Promotions"
+      - "Flight Offers"
+      - "Flight Discounts"
+      - "Flight Policies"
+      - "Flight Procedures"
+      - "Flight Regulations"
+      - "Flight Security"
+      - "Flight Safety"
+
+  ner:
+    enabled: true
+    source: user
+    labels:
+      - "Flight Number"
+      - "Date"
+      - "Time"
+      - "Location"
+      - "Airline"
+      - "Passenger Name"
+      - "Booking Reference"
+      - "PNR"
+      - "Email Address"
+      - "Phone Number"
+      - "Credit Card Number"
+      - "Loyalty Program Number"
+      - "Seat Number"
+      - "Baggage Claim Number"
+      - "Flight Status"
