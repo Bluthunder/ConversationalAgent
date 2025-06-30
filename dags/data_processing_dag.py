@@ -21,8 +21,8 @@ with DAG(
     # This task would run the acquisition and preprocessing steps
     preprocess_task = DockerOperator(
         task_id='run_preprocessing',
-        image='airline_pipeline:latest', # The name of your Docker image
-        command='python scripts/run_pipeline_locally.py',
+        image='airline_data_pipeline:latest',
+        command='python main/run_data_pipeline.py',
         docker_url="unix://var/run/docker.sock", # Or your remote Docker daemon
         network_mode="bridge",
         # You'd need to configure AWS credentials for S3 access
